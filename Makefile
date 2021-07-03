@@ -69,6 +69,7 @@ build-dev:
 build-all-platforms:
 	go generate ./...
 	env GOOS=darwin go build -o stripe-darwin cmd/stripe/main.go
+	env GOOS=linux GOARCH=arm64 go build -o stripe-linux-arm cmd/stripe/main.go
 	env GOOS=linux go build -o stripe-linux cmd/stripe/main.go
 	env GOOS=windows go build -o stripe-windows.exe cmd/stripe/main.go
 .PHONY: build-all-platforms
